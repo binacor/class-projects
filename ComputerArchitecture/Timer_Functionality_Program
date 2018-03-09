@@ -1,0 +1,36 @@
+module rom_case(out, address);
+output reg [15:0] out;
+input  [15:0] address; // address- 8 deep memory  
+always @(address)
+begin
+case (address)
+8'h0:  out = 16'hc014; // LRI R0,20
+8'h1:  out = 16'hc80a; // LRI R1,10
+8'h2:  out = 16'ha901; // STI R1,1
+8'h3:  out = 16'ha802; // STI R0,2
+8'h4:  out = 16'ha300; // LDI R3,0
+8'h5:  out = 16'ha401; // LDI R4,1
+8'h6:  out = 16'ha502; // LDI R5,2
+8'h7:  out = 16'ha300; // LDI R3,0
+8'h8:  out = 16'ha300; // LDI R3,0
+8'h9:  out = 16'ha300; // LDI R3,0
+8'ha:  out = 16'ha300; // LDI R3,0
+8'hb:  out = 16'ha300; // LDI R3,0
+8'hc:  out = 16'ha300; // LDI R3,0
+8'hd:  out = 16'ha300; // LDI R3,0
+8'he:  out = 16'ha300; // LDI R3,0
+8'hf:  out = 16'ha300; // LDI R3,0
+8'h10:  out = 16'ha300; // LDI R3,0
+8'h11:  out = 16'ha300; // LDI R3,0
+8'h12:  out = 16'ha300; // LDI R3,0
+8'h13:  out = 16'ha300; // LDI R3,0
+8'h14:  out = 16'ha300; // LDI R3,0
+8'h15:  out = 16'ha300; // LDI R3,0
+8'h16:  out = 16'ha300; // LDI R3,0
+8'h17:  out = 16'ha300; // LDI R3,0
+8'h18:  out = 16'ha300; // LDI R3,0
+
+default: out=16'h0000;
+endcase
+end
+endmodule
