@@ -1,3 +1,3 @@
 MIPS Microprocessor implemented in QUARTUS-II.
 
-So far, trouble uploading files... upload is not complete.
+All files uploaded. ControlUnit is the top level project to show functionality. Remember to import pin assignments. 
