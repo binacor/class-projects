@@ -1,0 +1,81 @@
+module 16by16RegFile( input Write,clock,reset, input [15..0] D, input [3..0] DA,AA,BA, 
+							output [15..0] A,B,r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15);
+
+reg[15:0] A,B,r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15;
+parameter ZERO = 16b'0000000000000000;
+always @(posedge clock) begin
+	if(reset) begin
+		r0<=ZERO;
+		r1<=ZERO;
+		r2<=ZERO;
+		r3<=ZERO;
+		r4<=ZERO;
+		r5<=ZERO;
+		r6<=ZERO;
+		r7<=ZERO;
+		r8<=ZERO;
+		r9<=ZERO;
+		r10<=ZERO;
+		r11<=ZERO;
+		r12<=ZERO;
+		r13<=ZERO;
+		r14<=ZERO;
+		r15<=ZERO;
+	end
+	else if(Write) begin
+			case (DA) 
+				0:r0<=D
+				1:r1<=D;
+				2:r2<=D;
+				3:r3<=D;
+				4:r4<=D;
+				5:r5<=D;
+				6:r6<=D;
+				7:r7<=D;
+				8:r8<=D;
+				9:r9<=D;
+				10:r10<=D;
+				11:r11<=D;
+				12:r12<=D;
+				13:r13<=D;
+				14:r14<=D;
+				15:r15<=D;
+			endcase
+		end
+		case (AA) 
+			0:A<=r0;
+			1:A<=r1;
+			2:A<=r2;
+			3:A<=r3;
+			4:A<=r4;
+			5:A<=r5;
+			6:A<=r6;
+			7:A<=r7;
+			8:A<=r8;
+			9:A<=r9;
+			10:A<=r10;
+			11:A<=r11;
+			12:A<=r12;
+			13:A<=r13;
+			14:A<=r14;
+			15:A<=r15;
+		endcase
+		case (BA) 
+			0:B<=r0;
+			1:B<=r1;
+			2:B<=r2;
+			3:B<=r3;
+			4:B<=r4;
+			5:B<=r5;
+			6:B<=r6;
+			7:B<=r7;
+			8:B<=r8;
+			9:B<=r9;
+			10:B<=r10;
+			11:B<=r11;
+			12:B<=r12;
+			13:B<=r13;
+			14:B<=r14;
+			15:B<=r15;
+		endcase
+	end
