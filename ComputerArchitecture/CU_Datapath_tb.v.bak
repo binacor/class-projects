@@ -1,0 +1,137 @@
+module CU_Datapath_tb;
+
+	reg clk;
+	wire R0, R1, R2, R3, R4, R5, R6, R7;
+	
+	CU_Datapath dut (.clk (clk),
+							 .R0 (R0),
+							 .R1 (R1),
+							 .R2 (R2),
+							 .R3 (R3),
+							 .R4 (R4),
+							 .R5 (R5),
+							 .R6 (R6),
+							 .R7 (R7)); 
+				 
+	//Generates Clock Signal
+	initial 
+	begin 
+		clk = 1'b0;
+	end 
+    
+  always 
+    #10 clk = ~clk;
+			
+	
+	//Stimulus
+	initial
+		begin
+		
+		#15$display("R0 %b", R0);
+		
+		#20$display("R1 %b", R1);
+		
+		#20$display("R2 %b", R2);
+		
+		#20$display("R3 %b", R3);
+		
+		#20$display("R4 %b", R4);
+		
+		#20$display("R5 %b", R5);
+		
+		#20$display("R6 %b", R6);
+		
+		#20$display("R3 %b", R3);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R3 %b", R3);
+		
+		#30$display("R7 %b", R7); //mult
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+
+		#20$display("R1 %b", R1);
+		
+		#20$display("R7 %b", R2);
+		
+		#20$display("R7 %b", R3);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R4);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R0);
+		
+		#20$display("R7 %b", R1);
+		
+		#20$display("R7 %b", R2);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R3);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#30$display("R7 %b", R7); //call
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+		
+		#20$display("R7 %b", R7);
+
+		
+		end
+	
+endmodule

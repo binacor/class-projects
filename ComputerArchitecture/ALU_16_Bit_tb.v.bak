@@ -1,0 +1,33 @@
+module ALU_16Bit_tb;
+
+parameter bit_width = 16;
+	//signals to simulate
+	reg Cin;
+	reg [4:0] FS;
+	reg [bit_width-1:0] A, B;
+	//signals to watch
+	wire [bit_width-1:0] F;
+	wire [5:0] functionSelect;
+   assign functionSelect = {{FS[4]},{FS[3]},{FS[2]},{FS[1]},{FS[0]},{Cin}};
+	
+	
+	ALU_16Bit_V dut( 
+	//inputs/outputs connected to internal signals
+		.FS(FS),
+		.A(A),
+		.B(B),
+		.Cin(Cin),
+		.F(F)
+		.functionSelect(functionSelect)
+		);
+		
+		
+		initial 
+		begin
+		
+		A = $random;
+		B = $random;
+		functionSelect = 6'bXXXXXX;
+		
+		
+		end 
