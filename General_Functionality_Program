@@ -1,0 +1,79 @@
+module rom_case(out, address);
+output reg [15:0] out;
+input  [15:0] address; // address- 8 deep memory  
+always @(address)
+begin
+case (address)
+16'h0:  out = 16'hc000; // LRI R0,0
+16'h1:  out = 16'hc801; // LRI R1,1
+16'h2:  out = 16'hd002; // LRI R2,2
+16'h3:  out = 16'hd803; // LRI R3,3
+16'h4:  out = 16'he032; // LRI R4, 50
+16'h5:  out = 16'he85d; // LRI R5, 93
+16'h6:  out = 16'hf7ec; // LRI R6, -20
+16'h7:  out = 16'h60d8; // INC R3,R3
+16'h8:  out = 16'h69d1; // ADD R7,R2,R1
+16'h9:  out = 16'h6dec; // SUB R7, R5, R4
+16'ha:  out = 16'h64d8; // DEC R3, R3
+16'hb:  out = 16'h6fd4; // MUL R7, R2, R4
+16'hc:  out = 16'h6be3; // ADDC R7, R4, R3
+16'hd:  out = 16'h63f0; // NEG R7, R6
+16'he:  out = 16'h63f8; // NEG R7, R7
+16'hf:  out = 16'h73e0; // SHR R7, R4
+16'h10:  out = 16'h71e0; // SHL R7, R4
+16'h11:  out = 16'hfc00; // LRI R7, 1024
+16'h12:  out = 16'h77f8; // ASHR R7, R7
+16'h13:  out = 16'h41c0; // CLR R7
+16'h14:  out = 16'h5fc0; // SET R7
+16'h15:  out = 16'h47f8; // NOT R7,R7
+16'h16:  out = 16'h51e5; // AND R7,R4,R5
+16'h17:  out = 16'h5de5; // OR R7,R4,R5
+16'h18:  out = 16'h4de5; // XOR R7,R4,R5
+16'h19:  out = 16'h59e0; // MOVA R7,R4
+16'h1a:  out = 16'h55c5; // MOVB R7,R5
+16'h1b:  out = 16'hf01; // ADDI R7,1
+16'h1c:  out = 16'h0; // NOP
+16'h1d:  out = 16'h1f0a; // ANDI R7,10
+16'h1e:  out = 16'h2f0a; // ORI R7, 10
+16'h1f:  out = 16'h370a; // XORI R7, 10
+16'h20:  out = 16'ha901; // STI R1,1
+16'h21:  out = 16'haa02; // STI R2,2
+16'h22:  out = 16'hab03; // STI R3,3
+16'h23:  out = 16'ha703; // LDI R7,3
+16'h24:  out = 16'ha702; // LDI R7,2
+16'h25:  out = 16'ha701; // LDI R7,1
+16'h26:  out = 16'h8b2c; // STR R4,R5
+16'h27:  out = 16'h89e0; // LDR R7, R4
+16'h28:  out = 16'h8000; // PUSH R0
+16'h29:  out = 16'h8008; // PUSH R1
+16'h2a:  out = 16'h8010; // PUSH R2
+16'h2b:  out = 16'h83c0; // POP R7
+16'h2c:  out = 16'h83c0; // POP R7
+16'h2d:  out = 16'h8018; // PUSH R3
+16'h2e:  out = 16'h83c0; // POP R7
+16'h2f:  out = 16'h83c0; // POP R7
+8'h30:  out = 16'h9c3c; // CALL 60
+8'h31:  out = 16'h983e; // JMPI 62
+8'h32:  out = 16'hb13b; // BRZ R1, 59
+8'h33:  out = 16'hf80a; // LRI R7, 10
+8'h34:  out = 16'hb00c; // BRZ R0, 12
+8'h35:  out = 16'hb93b; // BRN R1, 59
+8'h36:  out = 16'hf806; // LRI R7, 6
+8'h37:  out = 16'hbe0b; // BRN R6, 11
+8'h38:  out = 16'hf80f; // LRI R7, 15
+8'h39:  out = 16'h91c4; // BCLR R7, 1
+8'h3a:  out = 16'h93c4; // BSET R7, 1
+8'h3b:  out = 16'h9845; // JMPI 69
+8'h3c:  out = 16'hf821; // LRI R7, 33
+8'h3d:  out = 16'h9e00; // RET
+8'h3e:  out = 16'hf832; // LRI R7,50
+8'h3f:  out = 16'h9a38; // JMPR R7
+8'h40:  out = 16'hf814; // LRI R7,20
+8'h41:  out = 16'h9835; // JMPI 53
+8'h42:  out = 16'hf828; // LRI R7, 40
+8'h43:  out = 16'h9838; // JMPI 56
+
+default: out=16'h0000;
+endcase
+end
+endmodule
